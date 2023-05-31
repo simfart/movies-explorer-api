@@ -18,6 +18,10 @@ app.use(helmet());
 app.use(cors({
   origin: [
     'http://127.0.0.1:27017',
+    'http://artmovies.nomoredomains.rocks/',
+    'http://api.artmovies.nomoredomains.rocks/',
+    'https://artmovies.nomoredomains.rocks/',
+    'https://api.artmovies.nomoredomains.rocks/',
   ],
   method: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   credentials: true,
