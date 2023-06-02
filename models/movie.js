@@ -37,7 +37,7 @@ const movieSchema = new mongoose.Schema(
         validator: (value) => validator.isURL(value),
         message: 'Невалидный URL',
       },
-      required: [true, 'trailer is required'],
+      required: [true, 'trailer is required '],
     },
     thumbnail: {
       type: String,
