@@ -3,7 +3,8 @@ const Movie = require('../models/movie');
 const { AccessError, NotFoundError, ValidationError } = require('../utils/errors');
 
 const getMovie = (req, res, next) => {
-  Movie.find({})
+  const owner = req.user._id;
+  Movie.find({ owner })
     .then((movie) => res.status(200).send(movie))
     .catch(next);
 };

@@ -5,23 +5,23 @@ const movieSchema = new mongoose.Schema(
   {
     country: {
       type: String,
-      required: true,
+      required: [true, 'country is required'],
     },
     director: {
       type: String,
-      required: true,
+      required: [true, 'director is required'],
     },
     duration: {
       type: Number,
-      required: true,
+      required: [true, 'duration is required'],
     },
     year: {
       type: String,
-      required: true,
+      required: [true, 'year is required'],
     },
     description: {
       type: String,
-      required: true,
+      required: [true, 'description is required'],
     },
     image: {
       type: String,
@@ -29,13 +29,15 @@ const movieSchema = new mongoose.Schema(
         validator: (value) => validator.isURL(value),
         message: 'Невалидный URL',
       },
+      required: [true, 'image is required'],
     },
-    trailerLink: {
+    trailer: {
       type: String,
       validate: {
         validator: (value) => validator.isURL(value),
         message: 'Невалидный URL',
       },
+      required: [true, 'trailer is required'],
     },
     thumbnail: {
       type: String,
@@ -43,23 +45,24 @@ const movieSchema = new mongoose.Schema(
         validator: (value) => validator.isURL(value),
         message: 'Невалидный URL',
       },
+      required: [true, 'thumbnail is required'],
     },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user',
-      required: true,
+      required: [true, 'owner is required'],
     },
     movieId: {
       type: Number,
-      required: true,
+      required: [true, 'movieId is required'],
     },
     nameRU: {
       type: String,
-      required: true,
+      required: [true, 'nameRU is required'],
     },
     nameEN: {
       type: String,
-      required: true,
+      required: [true, 'nameEN is required'],
     },
   },
   {

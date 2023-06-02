@@ -4,9 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-
     "dev": "nodemon app.js",
-     "start": "node app.js",
+    "start": "node app.js",
     "lint": "npx eslint ."
   },
   "author": "Lubov Artyugina",
@@ -21,6 +20,7 @@
     "express-rate-limit": "^6.7.0",
     "express-winston": "^4.2.0",
     "helmet": "^7.0.0",
+    "joi-objectid": "^4.0.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.1",
     "validator": "^13.9.0",
