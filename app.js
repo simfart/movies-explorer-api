@@ -15,7 +15,19 @@ mongoose.connect(MONGO_ADRESS);
 app.use(requestLogger);
 app.use(limiter);
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3001',
+    'http://127.0.0.1:27017',
+    'http://api.simfart.nomoredomains.monster',
+    'https://api.simfart.nomoredomains.monster',
+    'http://simfart.nomoredomains.monster',
+    'https://simfart.nomoredomains.monster',
+  ],
+  method: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  credentials: true,
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use('/', router);
