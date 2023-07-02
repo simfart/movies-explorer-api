@@ -30,7 +30,7 @@ const createMovie = (req, res, next) => {
     movieId,
     owner,
   })
-    .then((movie) => res.status(201).send({ data: movie }))
+    .then((movie) => res.status(201).send(movie))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError('Переданы некорректные данные при добавлении фильма '));
@@ -48,7 +48,7 @@ const deleteMovie = (req, res, next) => {
         return next(new AccessError());
       }
       return Movie.findByIdAndDelete(req.params.movieId)
-        .then(() => res.send({ data: movie }));
+        .then(() => res.send(movie));
     })
     .catch(next);
 };
