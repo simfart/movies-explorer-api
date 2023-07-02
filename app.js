@@ -17,7 +17,18 @@ app.use(limiter);
 app.use(helmet({
   crossOriginResourcePolicy: false,
 }));
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://127.0.0.1:27017',
+    'http://localhost:3001',
+    'http://localhost:3000',
+    'http://artmovies.nomoredomains.rocks/',
+    'http://api.artmovies.nomoredomains.rocks/',
+    'https://artmovies.nomoredomains.rocks/',
+    'https://api.artmovies.nomoredomains.rocks/',
+  ],
+  method: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/', router);
