@@ -78,7 +78,11 @@ const login = (req, res, next) => {
 };
 
 const logout = (req, res) => {
-  res.clearCookie('jwt').send({ message: 'Выход' });
+  res.clearCookie('jwt', {
+    sameSite: 'none',
+    SameSite: 'None',
+    secure: true,
+  }).send({ message: 'Выход' });
 };
 
 module.exports = {
