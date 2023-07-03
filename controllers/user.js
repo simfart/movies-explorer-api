@@ -2,8 +2,7 @@ const bcrypt = require('bcryptjs');
 const JWT = require('jsonwebtoken');
 const User = require('../models/user');
 
-// const { JWT_SECRET } = require('../utils/config');
-const { JWT_SECRET } = process.env;
+const { JWT_SECRET } = require('../utils/config');
 
 const { NotFoundError, DuplicateKeyError, ValidationError } = require('../utils/errors');
 
@@ -69,7 +68,6 @@ const login = (req, res, next) => {
       res
         .cookie('jwt', token, {
           maxAge: 3600000 * 7,
-          httpOnly: false,
           sameSite: 'none',
           secure: true,
         });
