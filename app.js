@@ -15,6 +15,7 @@ mongoose.connect(MONGO_ADRESS);
 app.use(requestLogger);
 app.use(limiter);
 app.use(helmet());
+app.use(cookieParser());
 app.use(cors({
   origin: [
     'http://localhost:3000',
@@ -30,7 +31,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use(cookieParser());
+
 app.use('/', router);
 app.use(errorLogger);
 app.use(errors());
