@@ -70,8 +70,8 @@ const login = (req, res, next) => {
         .cookie('jwt', token, {
           maxAge: 3600000 * 7,
           httpOnly: true,
-          SameSite: 'none',
-          sameSite: 'none',
+          SameSite: 'None',
+          sameSite: 'None',
           secure: true,
         });
       res.send({ token });
